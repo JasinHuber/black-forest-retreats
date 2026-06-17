@@ -6,13 +6,8 @@ import { PlaceIcon } from "@/components/sections/umgebung/PlaceIcons";
 import { bandOf, type Place } from "@/data/surroundings";
 import { de } from "@/lib/strings/de";
 
-const StarIcon = () => (
-  <svg
-    aria-hidden
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className="h-3 w-3 text-brass-300"
-  >
+const StarIcon = ({ className = "h-3 w-3 text-brass-300" }: { className?: string }) => (
+  <svg aria-hidden viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M12 2.5 14.85 8.6l6.65.75-4.9 4.55 1.3 6.55L12 17.6 6.1 20.45l1.3-6.55L2.5 9.35 9.15 8.6z" />
   </svg>
 );
@@ -23,10 +18,17 @@ export function PlaceCard({ place }: { place: Place }) {
   const isDay = bandOf(place.distanceKm) === "day";
   const isIcon = Boolean(place.icon);
   const hasImage = Boolean(place.image);
+  const isRecommended = Boolean(place.recommended);
   const meta = [place.town, `${place.distanceKm} km`].filter(Boolean).join(" · ");
 
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-[6px] border border-cream-50/10 bg-cream-50/[0.03] transition-all duration-500 hover:-translate-y-1.5 hover:border-brass-400/40">
+    <article
+      className={`group relative flex h-full flex-col overflow-hidden rounded-[6px] bg-cream-50/[0.03] transition-all duration-500 hover:-translate-y-1.5 ${
+        isRecommended
+          ? "border border-brass-400/70 shadow-[0_0_0_1px_rgba(193,150,80,0.30),0_20px_45px_-26px_rgba(193,150,80,0.55)] hover:border-brass-300"
+          : "border border-cream-50/10 hover:border-brass-400/40"
+      }`}
+    >
       {/* Medien-/Icon-Bereich */}
       <div className="relative aspect-[4/3] overflow-hidden">
         {hasImage ? (
@@ -58,8 +60,16 @@ export function PlaceCard({ place }: { place: Place }) {
         {/* Lesbarkeits-Verlauf unten */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night/70 via-transparent to-transparent" />
 
+        {/* Empfehlungs-Plakette: unsere klare Empfehlung der Kategorie */}
+        {isRecommended && (
+          <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-brass-400 px-3 py-1 font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-night shadow-[0_4px_14px_-4px_rgba(0,0,0,0.5)]">
+            <StarIcon className="h-3 w-3 text-night" />
+            {s.recommended}
+          </span>
+        )}
+
         {/* Aktivitäts-Icon als kleine Plakette auf dem Foto (Erlebnisse) */}
-        {hasImage && place.icon && (
+        {hasImage && place.icon && !isRecommended && (
           <span className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-brass-300/50 bg-night/45 text-brass-300 backdrop-blur-sm transition-transform duration-500 ease-out group-hover:scale-110">
             <PlaceIcon name={place.icon} className="h-[18px] w-[18px]" />
           </span>

@@ -41,6 +41,8 @@ export interface Place {
   michelin?: boolean;
   /** Als Highlight auf dem Hub zeigen. */
   highlight?: boolean;
+  /** Unsere ausdrückliche Empfehlung der Kategorie (goldener Rand + Badge). Genau ein Ort je Kategorie. */
+  recommended?: boolean;
   website?: string;
   mapsUrl?: string;
   /** Echtes Foto (ersetzt den Mockup-Verlauf), z. B. "/images/umgebung/orte/xy.jpg". */
@@ -103,8 +105,11 @@ export const surroundings: Place[] = [
     features: ["Gutbürgerlich", "Regional", "Familienbetrieb"],
     variant: "night",
     monogram: "BB",
+    recommended: true,
+    highlight: true,
     image: "/images/umgebung/restaurants/benders.webp",
     imageCredit: "Benders Birkenfeld",
+    website: "https://benders-restaurant.de",
   },
   {
     id: "arlinger-gaststaette",
@@ -198,6 +203,7 @@ export const surroundings: Place[] = [
     variant: "moss",
     icon: "paw",
     highlight: true,
+    recommended: true,
     image: "/images/umgebung/experiences/wildpark.webp",
     imageCredit: "pforzheim.de",
   },
@@ -308,6 +314,8 @@ export const surroundings: Place[] = [
     features: ["Aussicht", "Familie", "Baumwipfelpfad"],
     variant: "forest",
     monogram: "WL",
+    recommended: true,
+    highlight: true,
     image: "/images/umgebung/nature/wildline.webp",
     imageCredit: "bwegt.de",
   },
@@ -325,6 +333,8 @@ export const surroundings: Place[] = [
     variant: "night",
     monogram: "BF",
     highlight: true,
+    recommended: true,
+    website: "https://www.neuenbuerg.de/freizeit-erlebnis/sehenswertes-in-um-neuenbuerg/besucherbergwerk",
     image: "/images/umgebung/culture/bergwerk.webp",
     imageCredit: "frischglueck.de",
   },
@@ -394,6 +404,7 @@ export const surroundings: Place[] = [
     variant: "forest",
     monogram: "PT",
     highlight: true,
+    recommended: true,
     image: "/images/umgebung/wellness/palais-thermal.webp",
     imageCredit: "schwarzwaldplus.de",
   },
@@ -437,6 +448,7 @@ export const surroundings: Place[] = [
     variant: "bark",
     monogram: "FZ",
     highlight: true,
+    recommended: true,
     image: "/images/umgebung/regional/zordel.webp",
     imageCredit: "schwarzwald-tourismus.info",
   },
@@ -447,10 +459,19 @@ export const bandOf = (km: number): DistanceBand =>
   km <= 15 ? "near" : km <= 35 ? "mid" : "day";
 
 export const placesByCategory = (key: SurroundingCategoryKey): Place[] =>
-  surroundings.filter((p) => p.category === key);
+  surroundings
+    .filter((p) => p.category === key)
+    // Unsere Empfehlung führt die Kategorie an.
+    .sort((a, b) => Number(Boolean(b.recommended)) - Number(Boolean(a.recommended)));
 
 export const highlightPlaces = (): Place[] =>
   surroundings.filter((p) => p.highlight);
+
+/** Unsere Empfehlungen — ein Ort je Kategorie, sortiert nach Kategorie-Reihenfolge. */
+export const recommendedPlaces = (): Place[] =>
+  CATEGORY_ORDER.map((key) =>
+    surroundings.find((p) => p.category === key && p.recommended),
+  ).filter((p): p is Place => Boolean(p));
 
 export const isCategoryKey = (s: string): s is SurroundingCategoryKey =>
   (CATEGORY_ORDER as string[]).includes(s);
