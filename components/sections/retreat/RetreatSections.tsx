@@ -76,18 +76,11 @@ export function RetreatReviews({ retreat }: { retreat: RetreatCard }) {
               </span>
             </span>
           </div>
-          {(retreat.guestFavorite || retreat.superhost) && (
+          {retreat.guestFavorite && (
             <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-              {retreat.guestFavorite && (
-                <span className="rounded-full border border-brass-400/50 px-3 py-1 font-body text-xs font-semibold uppercase tracking-[0.16em] text-brass-600">
-                  {t.guestFavorite}
-                </span>
-              )}
-              {retreat.superhost && (
-                <span className="rounded-full border border-forest-900/20 px-3 py-1 font-body text-xs font-semibold uppercase tracking-[0.16em] text-forest-700/80">
-                  {t.superhost}
-                </span>
-              )}
+              <span className="rounded-full border border-brass-400/50 px-3 py-1 font-body text-xs font-semibold uppercase tracking-[0.16em] text-brass-600">
+                {t.guestFavorite}
+              </span>
             </div>
           )}
         </Reveal>

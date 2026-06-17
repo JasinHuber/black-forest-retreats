@@ -189,7 +189,7 @@ export const retreats: RetreatCard[] = [
   {
     id: 'the-raccoon-house',
     slug: 'the-raccoon-house',
-    name: 'The Raccoon House',
+    name: 'Raccoon House',
     image: '/images/wohnungen/raccoon-house/01.webp',
     gallery: [],
     highlight: 'Marktstraße 25 · Altstadt',

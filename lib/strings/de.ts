@@ -89,6 +89,7 @@ export const de = {
       amenities: 'Ausstattung',
       gallery: 'Fotos',
       showAllPhotos: 'Alle Fotos ansehen',
+      showAllAmenities: 'Gesamte Ausstattung anzeigen',
       showLess: 'Weniger anzeigen',
       reviewsTitle: 'Das sagen Gäste',
       reviewsCount: (n: number) => `${n} Bewertungen`,
@@ -142,14 +143,23 @@ export const de = {
       title: 'Was vor der Tür liegt',
       text: 'Von der Sterneküche bis zum stillen Flusstal. Sechs Welten rund um Neuenbürg, das meiste in wenigen Minuten erreichbar.',
       highlights: 'Beliebt bei unseren Gästen',
+      highlightsText: 'Was unsere Gäste am liebsten mögen. Pro Kategorie unsere klare Empfehlung.',
+      categories: 'Alle Kategorien',
+      categoriesText: 'Klapp auf, was dich interessiert, und stöbere in Ruhe.',
     },
     detail: {
       back: 'Zurück zur Umgebung',
       kicker: 'Umgebung',
     },
+    accordion: {
+      open: 'Aufklappen',
+      close: 'Zuklappen',
+      viewAll: (title: string) => `Alle ${title} ansehen`,
+    },
     card: {
       michelin: 'Michelin',
       dayTrip: 'Tagesausflug',
+      recommended: 'Unsere Empfehlung',
       soon: 'Infos folgen in Kürze',
       photo: 'Foto:',
     },
@@ -194,6 +204,7 @@ export const de = {
   park: {
     home: 'Unser Zuhause',
     name: 'Nationalpark Nordschwarzwald',
+    tagline: 'Der Schwarzwald, aber privat.',
   },
 
   footer: {

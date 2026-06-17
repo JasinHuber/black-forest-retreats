@@ -9,6 +9,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { GradientPanel } from "@/components/ui/GradientPanel";
 import { ApartmentMeta } from "@/components/sections/ApartmentMeta";
 import { RetreatGallery } from "@/components/sections/retreat/RetreatGallery";
+import { RetreatAmenities } from "@/components/sections/retreat/RetreatAmenities";
 import {
   RetreatHighlights,
   RetreatReviews,
@@ -111,11 +112,6 @@ export default async function RetreatDetailPage({
                 {t.detail.guestFavorite}
               </span>
             )}
-            {retreat.superhost && (
-              <span className="rounded-full border border-cream-50/30 bg-night/30 px-3 py-1 font-body text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-cream-50/90 backdrop-blur-sm">
-                {t.detail.superhost}
-              </span>
-            )}
             {untilLabel && (
               <span className="rounded-full border border-cream-50/40 bg-night/45 px-3 py-1 font-body text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-cream-50 backdrop-blur-sm">
                 {untilLabel}
@@ -149,6 +145,8 @@ export default async function RetreatDetailPage({
       {/* Inhalt scrollt über das fixierte Bild. */}
       <div className="relative">
         <RetreatHighlights usps={retreat.usps ?? []} />
+
+        <RetreatGallery images={retreat.gallery} name={retreat.name} />
 
         {/* Überblick: Beschreibung + Eckdaten */}
         <section className="bg-cream-50 px-6 py-20 md:px-10 md:py-24">
@@ -185,27 +183,7 @@ export default async function RetreatDetailPage({
           </div>
         </section>
 
-        <RetreatGallery images={retreat.gallery} name={retreat.name} />
-
-        {/* Ausstattung */}
-        <section className="bg-cream-50 px-6 py-20 md:px-10 md:py-24">
-          <div className="mx-auto max-w-7xl">
-            <Type role="eyebrow" className="text-brass-600">
-              {t.detail.amenities}
-            </Type>
-            <ul className="mt-8 grid grid-cols-1 gap-x-8 gap-y-3.5 sm:grid-cols-2 lg:grid-cols-3">
-              {retreat.amenities.map((a) => (
-                <li
-                  key={a}
-                  className="flex items-center gap-3 font-body text-sm text-forest-700/85"
-                >
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brass-500" />
-                  {a}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        <RetreatAmenities amenities={retreat.amenities} />
 
         <RetreatReviews retreat={retreat} />
 
