@@ -137,7 +137,7 @@ export function SiteHeader() {
             </a>
           ))}
           <span className="mt-10 font-body text-[0.62rem] font-medium uppercase tracking-[0.34em] text-cream-100/50">
-            {t.brand.location} · Schwarzwald
+            {t.park.name}
           </span>
         </nav>
       </div>

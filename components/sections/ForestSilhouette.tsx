@@ -140,8 +140,8 @@ export function ForestSilhouette() {
         </g>
       </svg>
 
-      {/* Standort-Marke: Werbung für den Nationalpark Nordschwarzwald (auf dem dunklen Band). */}
-      <div className="absolute inset-x-0 bottom-7 z-10 flex flex-col items-center px-6 text-center md:bottom-10">
+      {/* Standort-Marke: Nationalpark Nordschwarzwald — oben über den Baumwipfeln (heller Bereich). */}
+      <div className="absolute inset-x-0 top-7 z-10 flex flex-col items-center px-6 text-center md:top-10">
         <svg
           aria-hidden
           viewBox="0 0 24 24"
@@ -150,18 +150,17 @@ export function ForestSilhouette() {
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="h-6 w-6 text-brass-300"
+          className="h-6 w-6 text-brass-600"
         >
           <path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z" />
           <circle cx="12" cy="9" r="2.5" />
         </svg>
-        <span className="mt-2 font-body text-[0.6rem] font-semibold uppercase tracking-[0.32em] text-brass-300/75">
-          {t.park.home}
-        </span>
-        <span className="mt-1.5 font-display text-lg tracking-[0.01em] text-brass-300 md:text-2xl">
+        <span className="mt-2 font-display text-lg tracking-[0.01em] text-forest-900 md:text-2xl">
           {t.park.name}
         </span>
-        <span className="mt-3 h-px w-10 bg-brass-400/70" />
+        <span className="mt-1.5 font-body text-xs font-semibold uppercase tracking-[0.2em] text-brass-600">
+          {t.park.tagline}
+        </span>
       </div>
     </div>
   );
