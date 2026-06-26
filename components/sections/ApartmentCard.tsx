@@ -23,6 +23,12 @@ interface ApartmentCardProps {
   soldOutLabel: string;
   /** Bereits formatiert, z. B. „Ausgebucht bis 2027". */
   soldOutUntilLabel?: string;
+  /** Label für denkmalgeschützte Gebäude, z. B. „Denkmalgeschützt". */
+  heritageLabel: string;
+  /** Standort-Hinweis, z. B. „Historische Altstadt". */
+  oldTownLabel: string;
+  /** Präfix fürs Baujahr, z. B. „Erbaut um". */
+  builtLabel: string;
 }
 
 const CARD_CLASS =
@@ -44,12 +50,32 @@ const LockIcon = () => (
   </svg>
 );
 
+const LandmarkIcon = () => (
+  <svg
+    aria-hidden
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-3.5 w-3.5"
+  >
+    <path d="M3 21h18" />
+    <path d="M5 21V10l7-5 7 5v11" />
+    <path d="M9 21v-6h6v6" />
+  </svg>
+);
+
 export function ApartmentCard({
   retreat,
   ctaLabel,
   exclusiveLabel,
   soldOutLabel,
   soldOutUntilLabel,
+  heritageLabel,
+  oldTownLabel,
+  builtLabel,
 }: ApartmentCardProps) {
   const sold = Boolean(retreat.soldOut);
   const accent = ACCENTS[retreat.accent ?? "brass"];
@@ -100,18 +126,27 @@ export function ApartmentCard({
           <span />
         )}
 
-        {retreat.exclusive && (
-          <span className="rounded-full border border-brass-300/60 bg-night/40 px-3 py-1 font-body text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-brass-300 backdrop-blur-sm">
-            {exclusiveLabel}
-          </span>
-        )}
+        <div className="flex flex-col items-end gap-2">
+          {retreat.exclusive && (
+            <span className="rounded-full border border-brass-300/60 bg-night/40 px-3 py-1 font-body text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-brass-300 backdrop-blur-sm">
+              {exclusiveLabel}
+            </span>
+          )}
 
-        {sold && (
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-cream-50/40 bg-night/55 px-3 py-1 font-body text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-cream-50 backdrop-blur-sm">
-            <LockIcon />
-            {soldOutUntilLabel ?? soldOutLabel}
-          </span>
-        )}
+          {sold && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-cream-50/40 bg-night/55 px-3 py-1 font-body text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-cream-50 backdrop-blur-sm">
+              <LockIcon />
+              {soldOutUntilLabel ?? soldOutLabel}
+            </span>
+          )}
+
+          {retreat.heritage && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-cream-50/40 bg-night/45 px-3 py-1 font-body text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+              <LandmarkIcon />
+              {heritageLabel}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Textkörper unten */}
@@ -129,6 +164,11 @@ export function ApartmentCard({
           guests={retreat.maxGuests}
           className="mt-4 text-cream-100/85"
         />
+
+        <p className="mt-2.5 font-body text-[0.78rem] text-cream-100/75">
+          {oldTownLabel}
+          {retreat.year ? ` · ${builtLabel} ${retreat.year}` : ""}
+        </p>
 
         <span className="mt-6 inline-flex flex-col gap-2">
           <span className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-cream-50">

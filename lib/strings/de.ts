@@ -17,6 +17,7 @@ export const de = {
   // Locale-Formate (z. B. Dezimaltrennzeichen für Bewertungen wie „4,91").
   formats: { decimal: ',' },
   nav: {
+    home: 'Startseite',
     retreats: 'Unterkünfte',
     surroundings: 'Umgebung',
     gift: 'Gutschein',
@@ -35,7 +36,7 @@ export const de = {
     eyebrow: 'Schwarzwald · Neuenbürg',
     title: 'Erholung im Schwarzwald',
     subtitle:
-      'Schön eingerichtete Ferienwohnungen mitten im Wald. Persönlich geführt und direkt bei uns am günstigsten.',
+      'Der Schwarzwald, aber privat. Ferienwohnungen in Neuenbürg.',
     scrollCue: 'Ansehen',
   },
 
@@ -67,6 +68,8 @@ export const de = {
     prev: 'Zurück',
     next: 'Weiter',
     exclusive: 'Exklusiv',
+    heritage: 'Denkmalgeschützt',
+    oldTown: 'Historische Altstadt',
     comingSoon: 'Bald verfügbar',
     soldOut: {
       badge: 'Ausgebucht',
@@ -85,6 +88,7 @@ export const de = {
     },
     detail: {
       back: 'Alle Unterkünfte',
+      built: 'Erbaut um',
       overview: 'Im Überblick',
       highlights: 'Das macht es besonders',
       about: 'Die Unterkunft',
@@ -106,6 +110,14 @@ export const de = {
     // Meta-Vorlagen (Zahlen kommen aus data/retreats.ts)
     meta: (bedrooms: number, beds: number, guests: number) =>
       `${bedrooms} Schlafzimmer · ${beds} Betten · ${guests} Gäste`,
+  },
+
+  floatingSauna: {
+    eyebrow: 'Neu auf der Enz',
+    comingSoon: 'Coming Soon',
+    title: 'Floating Sauna',
+    text: 'Bald liegt unsere schwimmende Sauna direkt auf der Enz. Aufheizen, kurz ins kühle Wasser, der Wald ringsum und das Wasser unter dir. Ein neuer Platz zum Abschalten, mitten im Schwarzwald.',
+    note: 'Auf der Enz · Eröffnung folgt',
   },
 
   surroundings: {
@@ -183,7 +195,7 @@ export const de = {
     },
     fact2: {
       quote:
-        'Kuckucksuhr, Bollenhut, Kirschtorte: Der Schwarzwald hat ein Faible für Dinge, die Zeit und Handwerk brauchen.\n\nGut, dass du Zeit mitbringst.',
+        'Kuckucksuhr, Bollenhut, Kirschtorte:\n\nDer Schwarzwald hat ein Faible für Dinge, die Zeit und Handwerk brauchen.\n\nGut, dass du Zeit mitbringst.',
       source: 'Schwarzwald-Gefühl',
     },
   },
@@ -214,13 +226,16 @@ export const de = {
     title: 'Mitten im Nordschwarzwald',
     subtitle: 'Nationalpark Nordschwarzwald',
     marker: 'Neuenbürg',
+    consentText:
+      'Die Karte wird von OpenStreetMap geladen. Dabei wird deine IP-Adresse an OpenStreetMap übermittelt.',
+    consentCta: 'Karte laden',
   },
 
   footer: {
     tagline: 'Der Schwarzwald, aber privat. Ferienwohnungen in Neuenbürg.',
     discover: {
       title: 'Entdecken',
-      links: ['Unterkünfte', 'Umgebung', 'Gutschein', 'Über uns'],
+      links: ['Unterkünfte', 'Umgebung', 'Gutschein', 'Buchen'],
     },
     service: {
       title: 'Service',
@@ -237,10 +252,19 @@ export const de = {
     },
     legal: ['Impressum', 'Datenschutz', 'AGB'],
     copyright: (year: number) => `© ${year} Black Forest Retreats`,
+    credit: 'Website erstellt von',
   },
 
   langSwitcher: {
     label: 'Sprache',
+  },
+
+  cookie: {
+    title: 'Cookie-Hinweis',
+    text: 'Wir nutzen nur notwendige Cookies, kein Tracking. Externe Karten nur mit deiner Einwilligung.',
+    link: 'Datenschutzerklärung',
+    accept: 'Akzeptieren',
+    reject: 'Ablehnen',
   },
 
   /**
@@ -261,10 +285,10 @@ export const de = {
         { title: 'Blick aufs Schloss', text: 'Vom Bett und der Terrasse direkt aufs Schloss Neuenbürg.' },
         { title: 'Check-in per Schlüsselbox', text: 'Komm an, wann du willst, ganz ohne Übergabe.' },
         { title: 'Kostenlose Parkplätze', text: 'Eine Seltenheit in der Gegend, bei uns inklusive.' },
-        { title: 'Blitzsauber', text: 'Von Gästen immer wieder besonders gelobt.' },
+        { title: 'Sehr sauber', text: 'Von Gästen immer wieder besonders gelobt.' },
       ],
       reviews: [
-        { date: 'Mai 2025', text: 'Der Blick aufs Schloss vom Bett aus ist unbezahlbar. Alles blitzsauber, der Check-in über die Schlüsselbox total unkompliziert.' },
+        { date: 'Mai 2025', text: 'Der Blick aufs Schloss vom Bett aus ist unbezahlbar. Alles sehr sauber, der Check-in über die Schlüsselbox total unkompliziert.' },
         { date: 'April 2025', text: 'Tom ist ein super Gastgeber, schnelle Antworten und tolle Tipps für die Gegend. Die Terrasse am Abend ein Traum.' },
         { date: 'März 2025', text: 'Stilvoll eingerichtet, ruhig und trotzdem zentral. Parkplatz direkt da. Wir kommen wieder!' },
       ],
@@ -335,7 +359,7 @@ export const de = {
       ],
     },
     'the-raccoon-house': {
-      name: 'Raccoon House',
+      name: 'Country Club',
       highlight: 'Marktstraße 25 · Altstadt',
       tagline: 'Altstadt-Charme',
       shortDescription:
@@ -385,6 +409,32 @@ export const de = {
         'Großer Gemeinschaftsbereich',
         'Voll ausgestattete Küche',
         'Schnelles WLAN',
+      ],
+    },
+    'grey-fox': {
+      name: 'Grey Fox',
+      highlight: 'Le Renard Ivre · Altstadt',
+      tagline: 'Altstadt-Charme',
+      shortDescription:
+        'Gemütliches Stadthaus in der historischen Altstadt, benannt nach „Le Renard Ivre", dem betrunkenen Fuchs.',
+      description:
+        'Ein charmantes Refugium in der historischen Altstadt von Neuenbürg, liebevoll „Le Renard Ivre" getauft, nach dem alten Sprichwort vom betrunkenen Fuchs. Warmes Holz, dicke Mauern und viel Charakter über mehrere Etagen. Cafés, Bäcker und das Schloss sind nur ein paar Schritte entfernt.',
+      usps: [
+        { title: 'Mitten in der historischen Altstadt', text: 'Cafés, Bäcker und das Schloss sind nur ein paar Schritte weg.' },
+        { title: 'Viel Charakter', text: 'Warmes Holz und dicke Mauern in einem historischen Stadthaus.' },
+        { title: 'Voll ausgestattete Küche', text: 'Zum Kochen wie zu Hause.' },
+        { title: 'Kostenfreies WLAN', text: 'Schnell und stabil im ganzen Haus.' },
+      ],
+      reviews: [
+        { date: 'November 2024', text: 'Ein echtes Schmuckstück in der Altstadt. Der „betrunkene Fuchs" hat uns sofort verzaubert.' },
+        { date: 'September 2024', text: 'Charmant, ruhig und alles fußläufig erreichbar. Wir kommen wieder.' },
+      ],
+      amenities: [
+        'Mitten in der historischen Altstadt',
+        'Über mehrere Etagen',
+        'Historisches Stadthaus',
+        'Voll ausgestattete Küche',
+        'Kostenfreies WLAN',
       ],
     },
   } as Record<
@@ -450,6 +500,13 @@ export const de = {
         'Konditorei und Café seit 1954, hausgemachte Kuchen für den süßen Nachmittagsstopp.',
       features: ['Café', 'Konditorei', 'Seit 1954'],
     },
+    gruenhuette: {
+      name: 'Waldgaststätte Grünhütte',
+      town: 'Bad Wildbad',
+      blurb:
+        'Legendäre Waldgaststätte am Sommerberg, berühmt für ihre Heidelbeerpfannkuchen.',
+      features: ['Heidelbeerpfannkuchen', 'Nur zu Fuß/Rad', 'Schwarzwald-Küche'],
+    },
     'alpaka-wanderung': {
       name: 'Alpaka-Wanderung',
       town: 'Pforzheim',
@@ -512,12 +569,33 @@ export const de = {
         'Schwankende Brücke hoch über dem Tal, dazu der Baumwipfelpfad, Aussicht für die ganze Familie.',
       features: ['Aussicht', 'Familie', 'Baumwipfelpfad'],
     },
+    baumwipfelpfad: {
+      name: 'Baumwipfelpfad Schwarzwald',
+      town: 'Bad Wildbad',
+      blurb:
+        'Hoch über den Baumkronen am Sommerberg, mit Aussichtsturm und langer Tunnelrutsche.',
+      features: ['Aussichtsturm', 'Rutsche', 'Barrierefrei'],
+    },
+    'gruenhuette-wandern': {
+      name: 'Wanderung zur Grünhütte',
+      town: 'Bad Wildbad',
+      blurb:
+        'Waldwanderung zur Grünhütte mit ihren berühmten Heidelbeerpfannkuchen am Ziel.',
+      features: ['Wandern', '5 bis 7 km', 'Einkehr'],
+    },
     'bergwerk-neuenburg': {
       name: 'Besucherbergwerk Frischglück',
       town: 'Neuenbürg',
       blurb:
         'Historisches Schaubergwerk samt Schloss Neuenbürg, mit Führungen und „Theater im Berg“, direkt vor der Haustür.',
       features: ['Historisch', 'Führung', 'Theater im Berg'],
+    },
+    'schloss-neuenbuerg': {
+      name: 'Schloss Neuenbürg',
+      town: 'Neuenbürg',
+      blurb:
+        'Das Wahrzeichen über der Stadt: Renaissance-Schloss hoch über der Enzschleife, mit Museum, Schlossgarten und weitem Blick. Vom Penthouse aus immer im Blick, zu Fuß schnell erreicht.',
+      features: ['Wahrzeichen', 'Museum', 'Schlossgarten'],
     },
     'gasometer-pforzheim': {
       name: 'Gasometer Pforzheim',
@@ -542,6 +620,13 @@ export const de = {
       town: 'Stuttgart',
       blurb: 'Zoologisch-botanischer Garten im maurischen Stil. Ein Tag für die ganze Familie.',
       features: ['Zoo & Botanik', 'Familie', 'Tagesausflug'],
+    },
+    'wildpark-pforzheim-sehenswuerdigkeit': {
+      name: 'Wildpark Pforzheim',
+      town: 'Pforzheim',
+      blurb:
+        'Über 400 Tiere in rund 70 Arten auf 16,5 Hektar, von Luchs und Elch bis zum Streichelzoo. Eintritt frei, einer der schönsten Wildparks in Baden-Württemberg.',
+      features: ['Über 400 Tiere', 'Eintritt frei', 'Familie'],
     },
     'palais-thermal': {
       name: 'Palais Thermal',

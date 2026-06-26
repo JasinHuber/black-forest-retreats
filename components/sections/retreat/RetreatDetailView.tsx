@@ -102,6 +102,16 @@ export function RetreatDetailView({ slug }: { slug: string }) {
                 {untilLabel}
               </span>
             )}
+            {retreat.heritage && (
+              <span className="rounded-full border border-cream-50/40 bg-night/35 px-3 py-1 font-body text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+                {t.heritage}
+              </span>
+            )}
+            {retreat.year && (
+              <span className="font-body text-sm text-cream-100/80">
+                {t.detail.built} {retreat.year}
+              </span>
+            )}
           </div>
 
           <ApartmentMeta

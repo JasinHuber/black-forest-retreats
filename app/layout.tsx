@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/lib/i18n/I18nProvider";
+import { CookieBanner } from "@/components/layout/CookieBanner";
 import { getLocale } from "@/lib/i18n/server";
 import { dir } from "@/lib/i18n/config";
 
@@ -18,13 +19,13 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Black Forest Retreats — Exklusive Apartments in Neuenbürg",
+  title: "Black Forest Retreats · Exklusive Apartments in Neuenbürg",
   description:
     "Hochwertige Apartments im Herzen des Schwarzwalds. Direkt buchen, ankommen, durchatmen.",
   metadataBase: new URL("http://localhost:3030"),
   openGraph: {
     title: "Black Forest Retreats",
-    description: "Exklusive Apartments im Schwarzwald — Neuenbürg.",
+    description: "Exklusive Apartments im Schwarzwald, Neuenbürg.",
     locale: "de_DE",
     type: "website",
   },
@@ -44,7 +45,10 @@ export default async function RootLayout({
       className={`${fraunces.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body className="min-h-full">
-        <I18nProvider locale={locale}>{children}</I18nProvider>
+        <I18nProvider locale={locale}>
+          {children}
+          <CookieBanner />
+        </I18nProvider>
       </body>
     </html>
   );

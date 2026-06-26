@@ -150,6 +150,16 @@ export const surroundings: PlaceStruct[] = [
     image: "/images/umgebung/restaurants/cafe-blaich.webp",
     imageCredit: "tripadvisor.de",
   },
+  {
+    id: "gruenhuette",
+    category: "restaurants",
+    distanceKm: 18,
+    variant: "night",
+    monogram: "GH",
+    image: "/images/umgebung/restaurants/gruenhuette.jpg",
+    imageCredit: "gruenhuette.de",
+    website: "https://gruenhuette.de",
+  },
 
   // ───────────────────────── Erlebnisse ─────────────────────────
   {
@@ -251,6 +261,27 @@ export const surroundings: PlaceStruct[] = [
     image: "/images/umgebung/nature/wildline.webp",
     imageCredit: "bwegt.de",
   },
+  {
+    id: "baumwipfelpfad",
+    category: "nature",
+    distanceKm: 18,
+    variant: "forest",
+    monogram: "BW",
+    highlight: true,
+    image: "/images/umgebung/nature/baumwipfelpfad.jpg",
+    imageCredit: "baumwipfelpfad.de",
+    website: "https://www.baumwipfelpfad-schwarzwald.de",
+  },
+  {
+    id: "gruenhuette-wandern",
+    category: "nature",
+    distanceKm: 18,
+    variant: "forest",
+    monogram: "GH",
+    image: "/images/umgebung/nature/gruenhuette.jpg",
+    imageCredit: "gruenhuette.de",
+    website: "https://gruenhuette.de",
+  },
 
   // ───────────────────────── Kultur & Sehenswürdigkeiten ─────────────────────────
   {
@@ -264,6 +295,16 @@ export const surroundings: PlaceStruct[] = [
     website: "https://www.neuenbuerg.de/freizeit-erlebnis/sehenswertes-in-um-neuenbuerg/besucherbergwerk",
     image: "/images/umgebung/culture/bergwerk.webp",
     imageCredit: "frischglueck.de",
+  },
+  {
+    id: "schloss-neuenbuerg",
+    category: "culture",
+    distanceKm: 2,
+    variant: "night",
+    monogram: "SN",
+    highlight: true,
+    image: "/images/umgebung/culture/schloss-neuenbuerg.jpg",
+    imageCredit: "schloss-neuenbuerg.de",
   },
   {
     id: "gasometer-pforzheim",
@@ -300,6 +341,16 @@ export const surroundings: PlaceStruct[] = [
     monogram: "WI",
     image: "/images/umgebung/culture/wilhelma.webp",
     imageCredit: "wilhelma.de",
+  },
+  {
+    id: "wildpark-pforzheim-sehenswuerdigkeit",
+    category: "culture",
+    distanceKm: 14,
+    variant: "night",
+    monogram: "WP",
+    image: "/images/umgebung/experiences/wildpark.webp",
+    imageCredit: "pforzheim.de",
+    website: "https://www.pforzheim.de/freizeit/wildpark-pforzheim.html",
   },
 
   // ───────────────────────── Wellness & Thermen ─────────────────────────

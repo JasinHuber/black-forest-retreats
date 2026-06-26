@@ -14,6 +14,7 @@ export const zh: Strings = {
   },
   formats: { decimal: '.' },
   nav: {
+    home: '首页',
     retreats: '住宿',
     surroundings: '周边',
     gift: '礼券',
@@ -32,7 +33,7 @@ export const zh: Strings = {
     eyebrow: '黑森林 · 诺因比格',
     title: '在黑森林里好好休息',
     subtitle:
-      '林间精心布置的度假公寓。由我们亲自打理，直接向我们预订总是最划算。',
+      '黑森林，但归你私享。诺因比格的度假公寓。',
     scrollCue: '看一看',
   },
 
@@ -64,6 +65,8 @@ export const zh: Strings = {
     prev: '上一个',
     next: '下一个',
     exclusive: '独享',
+    heritage: '文物保护建筑',
+    oldTown: '历史老城区',
     comingSoon: '即将开放',
     soldOut: {
       badge: '已订满',
@@ -82,6 +85,7 @@ export const zh: Strings = {
     },
     detail: {
       back: '所有住宿',
+      built: '约建于',
       overview: '一览',
       highlights: '与众不同之处',
       about: '关于这处住宿',
@@ -103,6 +107,14 @@ export const zh: Strings = {
     // Meta templates (numbers come from data/retreats.ts)
     meta: (bedrooms: number, beds: number, guests: number) =>
       `${bedrooms} 间卧室 · ${beds} 张床 · ${guests} 位房客`,
+  },
+
+  floatingSauna: {
+    eyebrow: '恩茨河上的新去处',
+    comingSoon: '即将开放',
+    title: '漂浮桑拿',
+    text: '很快，我们的漂浮桑拿就将停靠在恩茨河上。先把身子烤热，再纵身跳入清凉的河水，四周是森林，脚下是流水。一处全新的放松之地，就在黑森林深处。',
+    note: '位于恩茨河上 · 即将开放',
   },
 
   surroundings: {
@@ -180,7 +192,7 @@ export const zh: Strings = {
     },
     fact2: {
       quote:
-        '布谷鸟钟、绒球帽、黑森林樱桃蛋糕：这片森林偏爱那些需要时间与手艺的东西。\n\n好在，你带来了时间。',
+        '布谷鸟钟、绒球帽、黑森林樱桃蛋糕：\n\n这片森林偏爱那些需要时间与手艺的东西。\n\n好在，你带来了时间。',
       source: '黑森林的味道',
     },
   },
@@ -211,13 +223,15 @@ export const zh: Strings = {
     title: '就在北黑森林深处',
     subtitle: '北黑森林国家公园',
     marker: '诺因比格',
+    consentText: '地图由 OpenStreetMap 加载，加载时您的 IP 地址会被传输至 OpenStreetMap。',
+    consentCta: '加载地图',
   },
 
   footer: {
     tagline: '黑森林，专属于你。诺因比格的度假公寓。',
     discover: {
       title: '探索',
-      links: ['住宿', '周边', '礼券', '关于我们'],
+      links: ['住宿', '周边', '礼券', '预订'],
     },
     service: {
       title: '服务',
@@ -234,10 +248,19 @@ export const zh: Strings = {
     },
     legal: ['法律声明', '隐私政策', '条款'],
     copyright: (year: number) => `© ${year} Black Forest Retreats`,
+    credit: '网站制作',
   },
 
   langSwitcher: {
     label: '语言',
+  },
+
+  cookie: {
+    title: 'Cookie 提示',
+    text: '我们仅使用必要 Cookie，不进行跟踪。外部地图仅在您同意后加载。',
+    link: '隐私政策',
+    accept: '接受',
+    reject: '拒绝',
   },
 
   /**
@@ -246,7 +269,7 @@ export const zh: Strings = {
    */
   retreatsContent: {
     'black-forest-penthouse': {
-      name: 'Black Forest Penthouse',
+      name: 'Black Forest Penthouse（黑森林顶层公寓）',
       highlight: '顶层公寓 · 望见城堡',
       tagline: '我们最受欢迎的一处',
       shortDescription:
@@ -276,7 +299,7 @@ export const zh: Strings = {
       ],
     },
     'fachwerk-apartment': {
-      name: 'Fachwerk-Apartment',
+      name: 'Fachwerk-Apartment（木筋架构公寓）',
       highlight: '木筋架构 · 露台与城堡景',
       tagline: '为两人世界而设',
       shortDescription:
@@ -304,7 +327,7 @@ export const zh: Strings = {
       ],
     },
     riverhouse: {
-      name: 'Riverhouse',
+      name: 'Riverhouse（河畔小屋）',
       highlight: '临河而居 · 望向水面',
       tagline: '为全家人而设',
       shortDescription:
@@ -331,7 +354,7 @@ export const zh: Strings = {
       ],
     },
     'the-raccoon-house': {
-      name: 'Raccoon House',
+      name: 'Country Club（乡村俱乐部）',
       highlight: 'Marktstraße 25 号 · 老城区',
       tagline: '老城韵味',
       shortDescription:
@@ -357,7 +380,7 @@ export const zh: Strings = {
       ],
     },
     'the-postal-office': {
-      name: 'The Postal Office',
+      name: 'The Postal Office（老邮局）',
       highlight: '昔日的老邮局 · 诺因比格心脏地带',
       tagline: '我们的镇店之宝',
       shortDescription:
@@ -381,6 +404,32 @@ export const zh: Strings = {
         '宽敞的公共区域',
         '设备齐全的厨房',
         '高速 WiFi',
+      ],
+    },
+    'grey-fox': {
+      name: 'Grey Fox（灰狐）',
+      highlight: 'Le Renard Ivre · 老城区',
+      tagline: '老城韵味',
+      shortDescription:
+        '一座温馨的城中宅邸，坐落于历史老城区，以「Le Renard Ivre」（醉狐）命名。',
+      description:
+        '一处迷人的栖所，坐落于诺因比格的历史老城区，亲切地取名「Le Renard Ivre」，源自那则关于醉狐的古老谚语。温润的原木、厚实的墙体，多层楼里满是韵味。咖啡馆、面包店与城堡，都只在几步之遥。',
+      usps: [
+        { title: '就在历史老城中心', text: '咖啡馆、面包店与城堡，都只在几步之遥。' },
+        { title: '满是韵味', text: '历史城中宅邸里，温润原木与厚实墙体相映。' },
+        { title: '设备齐全的厨房', text: '像在家一样下厨。' },
+        { title: '免费 WiFi', text: '全屋快速又稳定。' },
+      ],
+      reviews: [
+        { date: '2024年11月', text: '老城里真正的瑰宝。这只「醉狐」一下子就把我们迷住了。' },
+        { date: '2024年9月', text: '迷人、安静，处处都能步行抵达。我们还会再来。' },
+      ],
+      amenities: [
+        '就在历史老城中心',
+        '上下数层',
+        '历史城中宅邸',
+        '设备齐全的厨房',
+        '免费 WiFi',
       ],
     },
   } as Record<
@@ -446,6 +495,13 @@ export const zh: Strings = {
         '自 1954 年起的西点店与咖啡馆，手工蛋糕，正好作甜蜜的午后一站。',
       features: ['咖啡馆', '西点店', '始于 1954 年'],
     },
+    gruenhuette: {
+      name: '森林餐馆 Grünhütte',
+      town: '巴特维尔德巴德',
+      blurb:
+        '位于 Sommerberg 的传奇森林餐馆，以蓝莓薄饼闻名。',
+      features: ['蓝莓薄饼', '仅徒步/骑行', '黑森林料理'],
+    },
     'alpaka-wanderung': {
       name: '羊驼徒步',
       town: '普福尔茨海姆',
@@ -508,12 +564,33 @@ export const zh: Strings = {
         '高悬山谷之上、随风轻晃的吊桥，还有树冠步道，景致适合全家同享。',
       features: ['景致', '亲子', '树冠步道'],
     },
+    baumwipfelpfad: {
+      name: '黑森林树冠步道',
+      town: '巴特维尔德巴德',
+      blurb:
+        '高踞 Sommerberg 的树冠之上，设有观景塔与长长的隧道滑梯。',
+      features: ['观景塔', '滑梯', '无障碍'],
+    },
+    'gruenhuette-wandern': {
+      name: '徒步前往 Grünhütte',
+      town: '巴特维尔德巴德',
+      blurb:
+        '穿越森林前往 Grünhütte，终点是著名的蓝莓薄饼。',
+      features: ['徒步', '5 至 7 公里', '途中歇脚'],
+    },
     'bergwerk-neuenburg': {
       name: 'Besucherbergwerk Frischglück 参观矿坑',
       town: '诺因比格',
       blurb:
         '历史矿坑与诺因比格城堡相伴，设有导览与「山中剧场」（Theater im Berg），就在门口。',
       features: ['历史', '导览', '山中剧场'],
+    },
+    'schloss-neuenbuerg': {
+      name: 'Schloss Neuenbürg（诺因比格城堡）',
+      town: '诺因比格',
+      blurb:
+        '城镇之上的地标：文艺复兴风格的城堡，高踞恩茨河弯之上，设有博物馆、城堡花园与开阔视野。从顶层公寓望去始终在目，步行片刻即达。',
+      features: ['地标', '博物馆', '城堡花园'],
     },
     'gasometer-pforzheim': {
       name: 'Gasometer Pforzheim 全景馆',
@@ -538,6 +615,13 @@ export const zh: Strings = {
       town: '斯图加特',
       blurb: '摩尔风格的动植物园。一整天，全家同乐。',
       features: ['动物园与植物园', '亲子', '一日游'],
+    },
+    'wildpark-pforzheim-sehenswuerdigkeit': {
+      name: '普福尔茨海姆野生动物园',
+      town: '普福尔茨海姆',
+      blurb:
+        '16.5 公顷园区内有约 70 种、超过 400 只动物，从猞猁、麋鹿到可触摸动物角。免费入园，是巴登-符腾堡州最美的野生动物园之一。',
+      features: ['400 多只动物', '免费入园', '亲子'],
     },
     'palais-thermal': {
       name: 'Palais Thermal',

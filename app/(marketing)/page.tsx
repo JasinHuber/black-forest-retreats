@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { ApartmentsShowcase } from "@/components/sections/ApartmentsShowcase";
+import { FloatingSauna } from "@/components/sections/FloatingSauna";
 import { Surroundings } from "@/components/sections/Surroundings";
 import { SchwarzwaldFact } from "@/components/sections/SchwarzwaldFact";
 import { FactDecor } from "@/components/sections/FactDecor";
@@ -12,6 +13,7 @@ export default function HomePage() {
     <>
       <Hero />
       <ApartmentsShowcase />
+      <FloatingSauna />
       <Surroundings />
       <SchwarzwaldFact
         factKey="fact1"
@@ -21,11 +23,7 @@ export default function HomePage() {
       />
       <GiftVoucher />
       <ApartmentsPreview />
-      <SchwarzwaldFact
-        factKey="fact2"
-        tone="light"
-        decor={<FactDecor variant="schinkenTorte" />}
-      />
+      <SchwarzwaldFact factKey="fact2" bgImage="/images/elemente/mischwald.jpg" nowrapFirst />
       <RegionMap />
     </>
   );

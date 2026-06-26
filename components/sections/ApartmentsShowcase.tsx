@@ -61,6 +61,9 @@ export function ApartmentsShowcase() {
               retreat={r}
               ctaLabel={t.apartments.cta}
               exclusiveLabel={t.apartments.exclusive}
+              heritageLabel={t.apartments.heritage}
+              oldTownLabel={t.apartments.oldTown}
+              builtLabel={t.apartments.detail.built}
               soldOutLabel={t.apartments.soldOut.badge}
               soldOutUntilLabel={
                 r.soldOut && r.soldOutUntil
