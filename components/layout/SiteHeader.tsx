@@ -7,9 +7,12 @@ import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 
 // Mit führendem "/" → funktioniert von jeder Unterseite zurück zur Startseite.
 const NAV = [
+  { key: "home", href: "/" },
   { key: "retreats", href: "/#apartments" },
   { key: "surroundings", href: "/#umgebung" },
   { key: "gift", href: "/#gutschein" },
+  // „Buchen" vorläufig auf die Startseite, bis die Buchungsseite existiert.
+  { key: "book", href: "/" },
 ] as const;
 
 export function SiteHeader() {
@@ -47,9 +50,9 @@ export function SiteHeader() {
             : "bg-transparent pt-8 pb-5 md:pt-10 md:pb-6"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-5 md:px-10">
+        <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-5 md:px-10">
           {/* Links: Menü-Button */}
-          <div className="flex shrink-0 justify-start">
+          <div className="flex justify-self-start">
             <button
               type="button"
               aria-label={open ? t.nav.close : t.nav.menu}
@@ -88,17 +91,17 @@ export function SiteHeader() {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="flex min-w-0 flex-1 flex-col items-center px-1 text-center"
+            className="flex min-w-0 flex-col items-center justify-self-center px-1 text-center"
           >
             <span
-              className={`font-display whitespace-nowrap text-[0.88rem] leading-none tracking-[0.1em] transition-colors duration-500 sm:text-[1.06rem] sm:tracking-[0.14em] md:text-[1.375rem] ${
+              className={`font-display whitespace-nowrap text-[0.98rem] leading-none tracking-[0.1em] transition-colors duration-500 sm:text-[1.2rem] sm:tracking-[0.14em] md:text-[1.55rem] ${
                 light ? "text-white" : "text-forest-900"
               }`}
             >
               {t.brand.name}
             </span>
             <span
-              className={`mt-1.5 font-body text-[0.6rem] font-medium uppercase tracking-[0.34em] transition-colors duration-500 md:text-[0.7rem] ${
+              className={`mt-1.5 font-body text-[0.64rem] font-medium uppercase tracking-[0.34em] transition-colors duration-500 md:text-[0.76rem] ${
                 light ? "text-white/85" : "text-forest-700/80"
               }`}
             >
@@ -106,8 +109,8 @@ export function SiteHeader() {
             </span>
           </Link>
 
-          {/* Rechts: Sprach-Slider (immer sichtbar) + Buchen (Desktop; mobil übernimmt die Bottom-Bar) */}
-          <div className="flex shrink-0 items-center justify-end gap-2 md:gap-3">
+          {/* Rechts: Sprache (mobil ausklappbar) + Buchen (Desktop; mobil übernimmt die Bottom-Bar) */}
+          <div className="flex items-center justify-end justify-self-end gap-2 md:gap-3">
             <LanguageSwitcher compact showLabel={false} />
             <Link
               href="/#apartments"

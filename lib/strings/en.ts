@@ -14,6 +14,7 @@ export const en: Strings = {
   },
   formats: { decimal: '.' },
   nav: {
+    home: 'Home',
     retreats: 'Stays',
     surroundings: 'Surroundings',
     gift: 'Gift card',
@@ -32,7 +33,7 @@ export const en: Strings = {
     eyebrow: 'Black Forest · Neuenbürg',
     title: 'Time off in the Black Forest',
     subtitle:
-      'Beautifully furnished holiday homes right in the woods. Personally run, and always cheapest when you book with us.',
+      'The Black Forest, but private. Holiday apartments in Neuenbürg.',
     scrollCue: 'Take a look',
   },
 
@@ -64,6 +65,8 @@ export const en: Strings = {
     prev: 'Back',
     next: 'Next',
     exclusive: 'Exclusive',
+    heritage: 'Heritage-listed',
+    oldTown: 'Historic old town',
     comingSoon: 'Coming soon',
     soldOut: {
       badge: 'Booked out',
@@ -82,6 +85,7 @@ export const en: Strings = {
     },
     detail: {
       back: 'All stays',
+      built: 'Built around',
       overview: 'At a glance',
       highlights: 'What makes it special',
       about: 'The stay',
@@ -103,6 +107,14 @@ export const en: Strings = {
     // Meta templates (numbers come from data/retreats.ts)
     meta: (bedrooms: number, beds: number, guests: number) =>
       `${bedrooms} bedrooms · ${beds} beds · ${guests} guests`,
+  },
+
+  floatingSauna: {
+    eyebrow: 'New on the Enz',
+    comingSoon: 'Coming Soon',
+    title: 'Floating Sauna',
+    text: 'Soon our floating sauna will sit right on the Enz. Heat up, a quick dip in the cool water, the forest all around and the river beneath you. A new place to switch off, deep in the Black Forest.',
+    note: 'On the Enz · Opening soon',
   },
 
   surroundings: {
@@ -180,7 +192,7 @@ export const en: Strings = {
     },
     fact2: {
       quote:
-        'Cuckoo clock, Bollenhut, cherry cake: the Black Forest has a soft spot for things that take time and craft.\n\nGood thing you brought some time with you.',
+        'Cuckoo clock, Bollenhut, cherry cake:\n\nthe Black Forest has a soft spot for things that take time and craft.\n\nGood thing you brought some time with you.',
       source: 'Black Forest feeling',
     },
   },
@@ -211,13 +223,16 @@ export const en: Strings = {
     title: 'Right in the Northern Black Forest',
     subtitle: 'Nationalpark Nordschwarzwald',
     marker: 'Neuenbürg',
+    consentText:
+      'The map is loaded from OpenStreetMap. Your IP address is transmitted to OpenStreetMap in the process.',
+    consentCta: 'Load map',
   },
 
   footer: {
     tagline: 'The Black Forest, but private. Holiday homes in Neuenbürg.',
     discover: {
       title: 'Discover',
-      links: ['Stays', 'Surroundings', 'Gift card', 'About us'],
+      links: ['Stays', 'Surroundings', 'Gift card', 'Book'],
     },
     service: {
       title: 'Service',
@@ -234,10 +249,19 @@ export const en: Strings = {
     },
     legal: ['Imprint', 'Privacy', 'Terms'],
     copyright: (year: number) => `© ${year} Black Forest Retreats`,
+    credit: 'Website created by',
   },
 
   langSwitcher: {
     label: 'Language',
+  },
+
+  cookie: {
+    title: 'Cookie notice',
+    text: 'We only use necessary cookies, no tracking. External maps only with your consent.',
+    link: 'Privacy policy',
+    accept: 'Accept',
+    reject: 'Decline',
   },
 
   /**
@@ -276,7 +300,7 @@ export const en: Strings = {
       ],
     },
     'fachwerk-apartment': {
-      name: 'Fachwerk-Apartment',
+      name: 'Fachwerk-Apartment (timber-frame)',
       highlight: 'Timber frame · terrace & castle view',
       tagline: 'Perfect for couples',
       shortDescription:
@@ -331,7 +355,7 @@ export const en: Strings = {
       ],
     },
     'the-raccoon-house': {
-      name: 'Raccoon House',
+      name: 'Country Club',
       highlight: 'Marktstraße 25 · old town',
       tagline: 'Old-town charm',
       shortDescription:
@@ -381,6 +405,32 @@ export const en: Strings = {
         'Large shared area',
         'Fully equipped kitchen',
         'Fast Wi-Fi',
+      ],
+    },
+    'grey-fox': {
+      name: 'Grey Fox',
+      highlight: 'Le Renard Ivre · old town',
+      tagline: 'Old-town charm',
+      shortDescription:
+        'A cosy town house in the historic old town, named after "Le Renard Ivre", the drunken fox.',
+      description:
+        'A charming retreat in the historic old town of Neuenbürg, fondly named "Le Renard Ivre" after the old saying about the drunken fox. Warm wood, thick walls and plenty of character across several floors. Cafés, bakeries and the castle are just a few steps away.',
+      usps: [
+        { title: 'Right in the historic old town', text: 'Cafés, bakeries and the castle are just a few steps away.' },
+        { title: 'Full of character', text: 'Warm wood and thick walls in a historic town house.' },
+        { title: 'Fully equipped kitchen', text: 'Cook just like at home.' },
+        { title: 'Free Wi-Fi', text: 'Fast and stable throughout the house.' },
+      ],
+      reviews: [
+        { date: 'November 2024', text: 'A real gem in the old town. The "drunken fox" won us over straight away.' },
+        { date: 'September 2024', text: 'Charming, quiet and everything within walking distance. We will be back.' },
+      ],
+      amenities: [
+        'Right in the historic old town',
+        'Across several floors',
+        'Historic town house',
+        'Fully equipped kitchen',
+        'Free Wi-Fi',
       ],
     },
   } as Record<
@@ -446,6 +496,13 @@ export const en: Strings = {
         'A patisserie and café since 1954, with homemade cakes for a sweet afternoon stop.',
       features: ['Café', 'Patisserie', 'Since 1954'],
     },
+    gruenhuette: {
+      name: 'Waldgaststätte Grünhütte',
+      town: 'Bad Wildbad',
+      blurb:
+        'A legendary forest inn on the Sommerberg, famous for its blueberry pancakes.',
+      features: ['Blueberry pancakes', 'On foot/bike only', 'Black Forest cuisine'],
+    },
     'alpaka-wanderung': {
       name: 'Alpaca hike',
       town: 'Pforzheim',
@@ -508,12 +565,33 @@ export const en: Strings = {
         'A swaying bridge high above the valley, plus the treetop walk, with views for the whole family.',
       features: ['Views', 'Family', 'Treetop walk'],
     },
+    baumwipfelpfad: {
+      name: 'Black Forest Treetop Walk',
+      town: 'Bad Wildbad',
+      blurb:
+        'High above the treetops on the Sommerberg, with a viewing tower and a long tunnel slide.',
+      features: ['Viewing tower', 'Slide', 'Barrier-free'],
+    },
+    'gruenhuette-wandern': {
+      name: 'Hike to the Grünhütte',
+      town: 'Bad Wildbad',
+      blurb:
+        'A forest hike to the Grünhütte and its famous blueberry pancakes.',
+      features: ['Hiking', '5 to 7 km', 'Refreshment stop'],
+    },
     'bergwerk-neuenburg': {
       name: 'Besucherbergwerk Frischglück',
       town: 'Neuenbürg',
       blurb:
         'A historic show mine alongside Schloss Neuenbürg, with guided tours and "Theater im Berg", right on the doorstep.',
       features: ['Historic', 'Guided tour', 'Theater im Berg'],
+    },
+    'schloss-neuenbuerg': {
+      name: 'Schloss Neuenbürg (Neuenbürg Castle)',
+      town: 'Neuenbürg',
+      blurb:
+        'The landmark above town: a Renaissance castle high above the bend of the Enz, with a museum, castle garden and far-reaching views. Always in sight from the penthouse, a short walk away.',
+      features: ['Landmark', 'Museum', 'Castle garden'],
     },
     'gasometer-pforzheim': {
       name: 'Gasometer Pforzheim',
@@ -538,6 +616,13 @@ export const en: Strings = {
       town: 'Stuttgart',
       blurb: 'A zoological and botanical garden in Moorish style. A day for the whole family.',
       features: ['Zoo & botany', 'Family', 'Day trip'],
+    },
+    'wildpark-pforzheim-sehenswuerdigkeit': {
+      name: 'Wildpark Pforzheim',
+      town: 'Pforzheim',
+      blurb:
+        'More than 400 animals across around 70 species on 16.5 hectares, from lynx and elk to the petting zoo. Free admission, one of the finest wildlife parks in Baden-Württemberg.',
+      features: ['400+ animals', 'Free admission', 'Family'],
     },
     'palais-thermal': {
       name: 'Palais Thermal',

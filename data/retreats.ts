@@ -22,6 +22,8 @@ export interface RetreatStruct
   gallery: string[];    // Galerie für die Detailseite
   beds: number;
   bathrooms: number;
+  /** Geschätztes Baujahr (vorläufig, bis die genauen Zahlen vorliegen). */
+  year?: string;
   rating?: string;      // z. B. "4,91"
   reviewCount?: number; // Anzahl Bewertungen
   superhost?: boolean;
@@ -38,6 +40,8 @@ export interface RetreatStruct
   soldOutUntil?: string; // z. B. "2027"
   /** Besonders hervorgehoben (eigener Akzent), z. B. The Postal Office. */
   featured?: boolean;
+  /** Denkmalgeschütztes Gebäude → eigener Tag auf der Karte. */
+  heritage?: boolean;
   /** Mockup-Verlauf, solange kein echtes Foto (`image`) gesetzt ist. */
   variant?: GradientVariant;
 }
@@ -67,11 +71,12 @@ export const retreats: RetreatStruct[] = [
   {
     id: 'black-forest-penthouse',
     slug: 'black-forest-penthouse',
+    year: '1900',
     image: penthouseGallery[0],
     gallery: penthouseGallery,
     exclusive: true,
     accent: 'brass',
-    rating: '4,91',
+    rating: '4,89',
     reviewCount: 100,
     superhost: true,
     guestFavorite: true,
@@ -89,11 +94,12 @@ export const retreats: RetreatStruct[] = [
   {
     id: 'fachwerk-apartment',
     slug: 'fachwerk-apartment',
+    year: '1750',
     image: fachwerkGallery[0],
     gallery: fachwerkGallery,
     exclusive: true,
     accent: 'bark',
-    rating: '4,89',
+    rating: '4,87',
     reviewCount: 52,
     superhost: true,
     usps: [{ icon: 'castle' }, { icon: 'beams' }, { icon: 'bath' }, { icon: 'wifi' }],
@@ -112,13 +118,14 @@ export const retreats: RetreatStruct[] = [
   {
     id: 'riverhouse',
     slug: 'riverhouse',
+    year: '1920',
     image: '/images/wohnungen/riverhouse/01.webp',
     gallery: [],
     variant: 'moss',
     soldOut: true,
     soldOutUntil: '2027',
     accent: 'forest',
-    rating: '4,92',
+    rating: '4,88',
     reviewCount: 38,
     usps: [{ icon: 'waves' }, { icon: 'group' }, { icon: 'kitchen' }, { icon: 'wifi' }],
     reviews: [{ author: 'Familie K.' }, { author: 'Andreas' }],
@@ -133,13 +140,15 @@ export const retreats: RetreatStruct[] = [
   {
     id: 'the-raccoon-house',
     slug: 'the-raccoon-house',
+    year: '1820',
     image: '/images/wohnungen/raccoon-house/01.webp',
     gallery: [],
     variant: 'bark',
     soldOut: true,
     soldOutUntil: '2027',
+    heritage: true,
     accent: 'caramel',
-    rating: '4,85',
+    rating: '4,82',
     reviewCount: 44,
     usps: [{ icon: 'location' }, { icon: 'stairs' }, { icon: 'kitchen' }, { icon: 'wifi' }],
     reviews: [{ author: 'Petra' }, { author: 'Thomas' }],
@@ -154,13 +163,15 @@ export const retreats: RetreatStruct[] = [
   {
     id: 'the-postal-office',
     slug: 'the-postal-office',
+    year: '1895',
     image: '/images/wohnungen/postal-office/01.webp',
     gallery: [],
     variant: 'night',
     soldOut: true,
     soldOutUntil: '2028',
+    heritage: true,
     accent: 'gold',
-    rating: '4,90',
+    rating: '4,86',
     reviewCount: 26,
     usps: [{ icon: 'building' }, { icon: 'group' }, { icon: 'arch' }, { icon: 'kitchen' }],
     reviews: [{ author: 'Markus' }, { author: 'Verein H.' }],
@@ -168,6 +179,29 @@ export const retreats: RetreatStruct[] = [
     bedrooms: 10,
     beds: 15,
     bathrooms: 5,
+    cleaningFeeCents: 0,
+    basePriceCents: 0,
+    images: [],
+  },
+  {
+    id: 'grey-fox',
+    slug: 'grey-fox',
+    year: '1850',
+    image: '',
+    gallery: [],
+    variant: 'moss',
+    soldOut: true,
+    soldOutUntil: '2028',
+    heritage: true,
+    accent: 'forest',
+    rating: '4,74',
+    reviewCount: 19,
+    usps: [{ icon: 'location' }, { icon: 'beams' }, { icon: 'kitchen' }, { icon: 'wifi' }],
+    reviews: [{ author: 'Nicolas' }, { author: 'Sophie' }],
+    maxGuests: 5,
+    bedrooms: 3,
+    beds: 4,
+    bathrooms: 2,
     cleaningFeeCents: 0,
     basePriceCents: 0,
     images: [],
